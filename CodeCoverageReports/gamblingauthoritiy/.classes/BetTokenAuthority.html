@@ -1,0 +1,134 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BetTokenAuthority</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">gamblingauthoritiy</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BetTokenAuthority (gamblingauthoritiy)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BetTokenAuthority</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (2/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/ 4)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">BetTokenAuthority$MockitoMock$1413189012</td>
+  </tr>
+  <tr>
+    <td class="name">BetTokenAuthority$MockitoMock$1413189012$auxiliary$CawpXmU3</td>
+  </tr>
+  <tr>
+    <td class="name">BetTokenAuthority$MockitoMock$1413189012$auxiliary$jXzS73hb</td>
+  </tr>
+  <tr>
+    <td class="name">BetTokenAuthority$MockitoMock$1413189012$auxiliary$WCu6IBvK</td>
+  </tr>
+  <tr>
+    <td class="name">BetTokenAuthority$MockitoMock$1413189012$auxiliary$yxbNslFw</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (2/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/ 4)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package gamblingauthoritiy;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import casino.idfactory.BettingRoundID;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;/**
+<i>7</i>&nbsp; * See interface for described behaviour
+<i>8</i>&nbsp; *
+<i>9</i>&nbsp; */
+<b class="fc"><i>10</i>&nbsp;public class BetTokenAuthority implements IBetTokenAuthority {</b>
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    public BetToken getBetToken(BettingRoundID bettingRoundID){
+<i>15</i>&nbsp;        // create token
+<b class="fc"><i>16</i>&nbsp;        BetToken bettingBetToken = new BetToken(bettingRoundID);</b>
+<i>17</i>&nbsp;        // timestamp and log
+<i>18</i>&nbsp;        // NOT RELEVANT TO KNOW THE IMPLEMENTATION
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;        // return token
+<b class="fc"><i>21</i>&nbsp;        return bettingBetToken;</b>
+<i>22</i>&nbsp;    }
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    public Integer getRandomInteger(BetToken betToken){
+<i>26</i>&nbsp;        // NOT RELEVANT TO KNOW THE IMPLEMENTATION
+<b class="nc"><i>27</i>&nbsp;        return null;  // DUMMY IMPLEMENTATION</b>
+<i>28</i>&nbsp;    }
+<i>29</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

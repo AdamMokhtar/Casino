@@ -1,0 +1,129 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BetResult</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino.bet</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BetResult (casino.bet)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BetResult</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">BetResult$MockitoMock$1584981690</td>
+  </tr>
+  <tr>
+    <td class="name">BetResult$MockitoMock$1584981690$auxiliary$5JLbsVFk</td>
+  </tr>
+  <tr>
+    <td class="name">BetResult$MockitoMock$1584981690$auxiliary$UZIautvF</td>
+  </tr>
+  <tr>
+    <td class="name">BetResult$MockitoMock$1584981690$auxiliary$wmKJ0bGF</td>
+  </tr>
+  <tr>
+    <td class="name">BetResult$MockitoMock$1584981690$auxiliary$xHxhANus</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino.bet;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;/**
+<i>4</i>&nbsp; * Immutable class.
+<i>5</i>&nbsp; * contains the Bet which won, together with the amount won.
+<i>6</i>&nbsp; */
+<i>7</i>&nbsp;public class BetResult {
+<i>8</i>&nbsp;    private Bet winningBet;  // original bet which won.
+<i>9</i>&nbsp;    private MoneyAmount amountWon;  // amount won.
+<i>10</i>&nbsp;
+<b class="fc"><i>11</i>&nbsp;    public BetResult(Bet winningBet, MoneyAmount amountWon) {</b>
+<b class="fc"><i>12</i>&nbsp;        this.winningBet = winningBet;</b>
+<b class="fc"><i>13</i>&nbsp;        this.amountWon = amountWon;</b>
+<b class="fc"><i>14</i>&nbsp;    }</b>
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    public Bet getWinningBet() {
+<b class="fc"><i>17</i>&nbsp;        return winningBet;</b>
+<i>18</i>&nbsp;    }
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    public MoneyAmount getAmountWon() {
+<b class="fc"><i>21</i>&nbsp;        return amountWon;</b>
+<i>22</i>&nbsp;    }
+<i>23</i>&nbsp;}
+<i>24</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

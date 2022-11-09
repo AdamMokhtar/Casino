@@ -1,0 +1,183 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BetToken</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">gamblingauthoritiy</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BetToken (gamblingauthoritiy)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BetToken</td>
+<td class="coverageStat">
+  <span class="percent">
+    14.3%
+  </span>
+  <span class="absValue">
+    (1/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    21.7%
+  </span>
+  <span class="absValue">
+    (5/ 23)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">BetToken$MockitoMock$138328089</td>
+  </tr>
+  <tr>
+    <td class="name">BetToken$MockitoMock$138328089$auxiliary$4jfBTbYH</td>
+  </tr>
+  <tr>
+    <td class="name">BetToken$MockitoMock$138328089$auxiliary$tLhVjkEP</td>
+  </tr>
+  <tr>
+    <td class="name">BetToken$MockitoMock$138328089$auxiliary$V3i5yBCy</td>
+  </tr>
+  <tr>
+    <td class="name">BetToken$MockitoMock$138328089$auxiliary$wCeZkRUa</td>
+  </tr>
+  <tr>
+    <td class="name">BetToken$MockitoMock$138328089$auxiliary$xv8T8G9P</td>
+  </tr>
+  <tr>
+    <td class="name">BetToken$MockitoMock$138328089$auxiliary$XZOzZZgY</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    14.3%
+  </span>
+  <span class="absValue">
+    (1/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    21.7%
+  </span>
+  <span class="absValue">
+    (5/ 23)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package gamblingauthoritiy;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import casino.idfactory.BettingRoundID;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.time.Instant;
+<i>7</i>&nbsp;import java.util.Objects;
+<i>8</i>&nbsp;import java.util.UUID;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;/**
+<i>11</i>&nbsp; *  immutable class consisting of a unique ID + creationTime combination,
+<i>12</i>&nbsp; *  combined with the bettingroundID it relates to.
+<i>13</i>&nbsp; *
+<i>14</i>&nbsp; *  This class is used for logging purposes of the bettingauthority.
+<i>15</i>&nbsp; */
+<i>16</i>&nbsp;public class BetToken implements Comparable {
+<i>17</i>&nbsp;    private BettingRoundID bettingRoundID;
+<i>18</i>&nbsp;    private UUID uniqueTokenID;
+<i>19</i>&nbsp;    private Instant creationTime;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;
+<b class="fc"><i>22</i>&nbsp;    public BetToken(BettingRoundID bettingRoundID) {</b>
+<b class="fc"><i>23</i>&nbsp;        this.bettingRoundID = bettingRoundID;</b>
+<b class="fc"><i>24</i>&nbsp;        this.uniqueTokenID = UUID.randomUUID();</b>
+<b class="fc"><i>25</i>&nbsp;        this.creationTime = Instant.now();</b>
+<b class="fc"><i>26</i>&nbsp;    }</b>
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    public BettingRoundID getBettingRoundID() {
+<b class="nc"><i>29</i>&nbsp;        return bettingRoundID;</b>
+<i>30</i>&nbsp;    }
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    public UUID getUniqueTokenID() {
+<b class="nc"><i>33</i>&nbsp;        return uniqueTokenID;</b>
+<i>34</i>&nbsp;    }
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    public Instant getCreationTime() {
+<b class="nc"><i>37</i>&nbsp;        return creationTime;</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    @Override
+<i>42</i>&nbsp;    public int compareTo(Object o) {
+<i>43</i>&nbsp;            // throw exceptions when necessary
+<b class="nc"><i>44</i>&nbsp;            if(o == null){</b>
+<b class="nc"><i>45</i>&nbsp;                throw new NullPointerException();</b>
+<i>46</i>&nbsp;            }
+<b class="nc"><i>47</i>&nbsp;            if(! (o instanceof BetToken)){</b>
+<b class="nc"><i>48</i>&nbsp;                throw new ClassCastException();</b>
+<i>49</i>&nbsp;            }
+<i>50</i>&nbsp;            // comparing logical attributes
+<b class="nc"><i>51</i>&nbsp;            BetToken token = (BetToken)o;</b>
+<b class="nc"><i>52</i>&nbsp;            int returnvalue = this.uniqueTokenID.compareTo(token.uniqueTokenID);</b>
+<b class="nc"><i>53</i>&nbsp;            if(returnvalue == 0){</b>
+<b class="nc"><i>54</i>&nbsp;                returnvalue = this.creationTime.compareTo(token.creationTime);</b>
+<i>55</i>&nbsp;            }
+<b class="nc"><i>56</i>&nbsp;            return returnvalue;</b>
+<i>57</i>&nbsp;        }
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    @Override
+<i>60</i>&nbsp;    public boolean equals(Object o) {
+<b class="nc"><i>61</i>&nbsp;        if (this == o) return true;</b>
+<b class="nc"><i>62</i>&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="nc"><i>63</i>&nbsp;        BetToken betToken = (BetToken) o;</b>
+<b class="nc"><i>64</i>&nbsp;        return uniqueTokenID.equals(betToken.uniqueTokenID) &amp;&amp;</b>
+<b class="nc"><i>65</i>&nbsp;                creationTime.equals(betToken.creationTime);</b>
+<i>66</i>&nbsp;    }
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;    @Override
+<i>69</i>&nbsp;    public int hashCode() {
+<b class="nc"><i>70</i>&nbsp;        return Objects.hash(uniqueTokenID, creationTime);</b>
+<i>71</i>&nbsp;    }
+<i>72</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

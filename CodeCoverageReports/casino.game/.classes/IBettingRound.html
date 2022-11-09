@@ -1,0 +1,90 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IBettingRound</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino.game</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IBettingRound (casino.game)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">IBettingRound</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino.game;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import casino.idfactory.BettingRoundID;
+<i>4</i>&nbsp;import gamblingauthoritiy.BetToken;
+<i>5</i>&nbsp;import casino.bet.Bet;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.util.Set;
+<i>8</i>&nbsp;/**
+<i>9</i>&nbsp; * a bettinground is responsible for keeping a collection of unique Bets.
+<i>10</i>&nbsp; */
+<i>11</i>&nbsp;public interface IBettingRound {
+<i>12</i>&nbsp;    BettingRoundID getBettingRoundID();
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    /**
+<i>15</i>&nbsp;     * add a bet to the current bettinground.
+<i>16</i>&nbsp;     *
+<i>17</i>&nbsp;     *
+<i>18</i>&nbsp;     * Note: also use the appropiate required methods from the gambling authority API
+<i>19</i>&nbsp;     *
+<i>20</i>&nbsp;     * @param bet
+<i>21</i>&nbsp;     * @return true if bet is made, otherwise folse
+<i>22</i>&nbsp;     * @throws IllegalArgumentException when Bet is null
+<i>23</i>&nbsp;     */
+<i>24</i>&nbsp;    boolean placeBet(Bet bet) throws IllegalArgumentException;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    /**
+<i>27</i>&nbsp;     *
+<i>28</i>&nbsp;     * @return set of all bets made in this betting round.
+<i>29</i>&nbsp;     */
+<i>30</i>&nbsp;    Set&lt;Bet&gt; getAllBetsMade();
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    /**
+<i>33</i>&nbsp;     *
+<i>34</i>&nbsp;     * @return betToken from this betting round.
+<i>35</i>&nbsp;     */
+<i>36</i>&nbsp;    BetToken getBetToken();
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    /**
+<i>39</i>&nbsp;     *
+<i>40</i>&nbsp;     * @return number of bets made in the betting round
+<i>41</i>&nbsp;     */
+<i>42</i>&nbsp;    int numberOFBetsMade();
+<i>43</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

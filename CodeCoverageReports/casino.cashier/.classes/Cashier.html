@@ -1,0 +1,282 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Cashier</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino.cashier</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Cashier (casino.cashier)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Cashier</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (44/ 44)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Cashier$MockitoMock$444041338</td>
+  </tr>
+  <tr>
+    <td class="name">Cashier$MockitoMock$444041338$auxiliary$2qhAlDnA</td>
+  </tr>
+  <tr>
+    <td class="name">Cashier$MockitoMock$444041338$auxiliary$AKLuk6hz</td>
+  </tr>
+  <tr>
+    <td class="name">Cashier$MockitoMock$444041338$auxiliary$gPt7NiQk</td>
+  </tr>
+  <tr>
+    <td class="name">Cashier$MockitoMock$444041338$auxiliary$GXLEwZKd</td>
+  </tr>
+  <tr>
+    <td class="name">Cashier$MockitoMock$444041338$auxiliary$Osx4WqkI</td>
+  </tr>
+  <tr>
+    <td class="name">Cashier$MockitoMock$444041338$auxiliary$oY542JJl</td>
+  </tr>
+  <tr>
+    <td class="name">Cashier$MockitoMock$444041338$auxiliary$SwyU1PP2</td>
+  </tr>
+  <tr>
+    <td class="name">Cashier$MockitoMock$444041338$auxiliary$zOpii6ja</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (44/ 44)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino.cashier;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import casino.bet.Bet;
+<i>5</i>&nbsp;import casino.bet.MoneyAmount;
+<i>6</i>&nbsp;import casino.idfactory.CardID;
+<i>7</i>&nbsp;import gamblingauthoritiy.IBetLoggingAuthority;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;import java.util.HashMap;
+<i>10</i>&nbsp;import java.util.Map;
+<i>11</i>&nbsp;/**
+<i>12</i>&nbsp; * @author ciara
+<i>13</i>&nbsp; */
+<i>14</i>&nbsp;public class Cashier implements ICashier {
+<i>15</i>&nbsp;    private Map&lt;IGamblerCard, Long&gt; distributedGamblerCards;
+<i>16</i>&nbsp;    private IBetLoggingAuthority betLoggingAuthority;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    /**
+<i>19</i>&nbsp;     * Creates a Cashier with a IBetLoggingAuthority
+<i>20</i>&nbsp;     *
+<i>21</i>&nbsp;     * @should createCashierAndAssignIBetLoggingAuthorityToLocalVariableAndInitialiseDistributedGamblerCards
+<i>22</i>&nbsp;     * @should throwIllegalArgumentExceptionIfIBetLoggingAuthorityIsNull
+<i>23</i>&nbsp;     *
+<i>24</i>&nbsp;     * @param bettingLoggingAuthority is the IBetLoggingAuthority the Cashier can communicate with
+<i>25</i>&nbsp;     * @throws IllegalArgumentException if the IBetLoggingAuthority is null
+<i>26</i>&nbsp;     */
+<b class="fc"><i>27</i>&nbsp;    public Cashier(IBetLoggingAuthority bettingLoggingAuthority) throws IllegalArgumentException {</b>
+<b class="fc"><i>28</i>&nbsp;        if (bettingLoggingAuthority != null) {</b>
+<b class="fc"><i>29</i>&nbsp;            this.betLoggingAuthority = bettingLoggingAuthority;</b>
+<b class="fc"><i>30</i>&nbsp;            this.distributedGamblerCards = new HashMap&lt;IGamblerCard, Long&gt;();</b>
+<i>31</i>&nbsp;        } else {
+<b class="fc"><i>32</i>&nbsp;            throw new IllegalArgumentException(&quot;IBetLoggingAuthority cannot be null.&quot;);</b>
+<i>33</i>&nbsp;        }
+<b class="fc"><i>34</i>&nbsp;    }</b>
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    /**
+<i>37</i>&nbsp;     * Cards are distributed by a Cashier to a gambler
+<i>38</i>&nbsp;     * bankteller keeps track of which cards are handed out.
+<i>39</i>&nbsp;     * Note: also use the appropiate required methods from the gambling authority API
+<i>40</i>&nbsp;     *
+<i>41</i>&nbsp;     * @should createAndAssignIGamblerCardToAGamblerWithNoMoneyAndCallLogHandOutGamblingCardOnBetLoggingAuthority
+<i>42</i>&nbsp;     * @should notAssignNullIGamblerCardToAGambler
+<i>43</i>&nbsp;     *
+<i>44</i>&nbsp;     * @return the distributed IGamblerCard
+<i>45</i>&nbsp;     */
+<i>46</i>&nbsp;    @Override
+<i>47</i>&nbsp;    public IGamblerCard distributeGamblerCard() {
+<b class="fc"><i>48</i>&nbsp;        IGamblerCard gamblerCard = new GamblerCard();</b>
+<b class="fc"><i>49</i>&nbsp;        this.distributedGamblerCards.put(gamblerCard, 0L);</b>
+<b class="fc"><i>50</i>&nbsp;        CardID cardID = gamblerCard.getCardID();</b>
+<b class="fc"><i>51</i>&nbsp;        this.betLoggingAuthority.logHandOutGamblingCard(cardID);</b>
+<b class="fc"><i>52</i>&nbsp;        return gamblerCard;</b>
+<i>53</i>&nbsp;    }
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;    /**
+<i>56</i>&nbsp;     * When handing in the card at a Bank teller, all betID’s on it are logged.
+<i>57</i>&nbsp;     * The total amount of money credit is physically handed to the gambler,
+<i>58</i>&nbsp;     * and card is removed from the list of distributed gambler cards.
+<i>59</i>&nbsp;     * The stored betID’s on the card are also removed.
+<i>60</i>&nbsp;     * Note: also use the appropriate required methods from the gambling authority API
+<i>61</i>&nbsp;     *
+<i>62</i>&nbsp;     * @should callLogHandInGamblingCardOnBetLoggingAuthorityWithIGamblerCardsCardIDAndBetIDsAndRemoveBetIDsFromCard
+<i>63</i>&nbsp;     * @should removeIGamblerCardFromListOfDistributedGamblerCards
+<i>64</i>&nbsp;     * @should throwIllegalArgumentExceptionIfIGamblerCardIsNullOrNotDistributed
+<i>65</i>&nbsp;     *
+<i>66</i>&nbsp;     * @param card is the IGamblerCard to return
+<i>67</i>&nbsp;     * @throws IllegalArgumentException if the IGamblerCard to return is null
+<i>68</i>&nbsp;     */
+<i>69</i>&nbsp;    @Override
+<i>70</i>&nbsp;    public void returnGamblerCard(IGamblerCard card) throws IllegalArgumentException {
+<b class="fc"><i>71</i>&nbsp;        if (card != null) {</b>
+<b class="fc"><i>72</i>&nbsp;            betLoggingAuthority.logHandInGamblingCard(card.getCardID(), card.returnBetIDsAndClearCard());</b>
+<b class="fc"><i>73</i>&nbsp;            distributedGamblerCards.remove(card);</b>
+<i>74</i>&nbsp;        } else {
+<b class="fc"><i>75</i>&nbsp;            throw new IllegalArgumentException(&quot;IGamblerCard to return cannot be null.&quot;);</b>
+<i>76</i>&nbsp;        }
+<b class="fc"><i>77</i>&nbsp;    }</b>
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;    /**
+<i>80</i>&nbsp;     * check if Bet made with the playercard is possible. this is based on the amount related
+<i>81</i>&nbsp;     * to the card, and the amount made in the bet.
+<i>82</i>&nbsp;     *
+<i>83</i>&nbsp;     * if the bet is valid, the amount of the bet is subtracted from the amount belonging to
+<i>84</i>&nbsp;     * the card.
+<i>85</i>&nbsp;     *
+<i>86</i>&nbsp;     * @should returnTrueIfIGamblerCardMoneyIsGreaterOrEqualToBetMoneyAmountAndIsInDistributedGamblerCards
+<i>87</i>&nbsp;     * @should throwBetNotExceptedExceptionIfIGamblerCardMoneyIsLessThanBetMoneyAmountOrIGamblerCardIsNotDistributed
+<i>88</i>&nbsp;     * @should subtractIGamblerCardAmountByBetMoneyAmountValueInCentsInDistributedGamblerCardsIfValid
+<i>89</i>&nbsp;     * @should throwsIllegalArgumentExceptionIfIGamblerCardOrBetIsNull
+<i>90</i>&nbsp;     *
+<i>91</i>&nbsp;     * @param card is the IGamblerCard used to make a bet
+<i>92</i>&nbsp;     * @param betToCheck is the bet that the IGamblerCard wants to make
+<i>93</i>&nbsp;     * @return true if the IGamblerCard&#39;s corresponding MoneyAmount is greater than the betToCheck&#39;s MoneyAmount
+<i>94</i>&nbsp;     * @throws BetNotExceptedException if bet amount is invalid
+<i>95</i>&nbsp;     * @throws IllegalArgumentException if the bet or card is null
+<i>96</i>&nbsp;     */
+<i>97</i>&nbsp;    @Override
+<i>98</i>&nbsp;    public boolean checkIfBetIsValid(IGamblerCard card, Bet betToCheck) throws BetNotExceptedException, IllegalArgumentException {
+<b class="fc"><i>99</i>&nbsp;        if (card != null) {</b>
+<b class="fc"><i>100</i>&nbsp;            if (betToCheck != null) {</b>
+<b class="fc"><i>101</i>&nbsp;                if (distributedGamblerCards.containsKey(card)) {</b>
+<b class="fc"><i>102</i>&nbsp;                    long betAmountInCents = betToCheck.getMoneyAmount().getAmountInCents();</b>
+<b class="fc"><i>103</i>&nbsp;                    if (betAmountInCents &lt;= distributedGamblerCards.get(card)) {</b>
+<b class="fc"><i>104</i>&nbsp;                        Long newAmountInCents = distributedGamblerCards.get(card) - betAmountInCents;</b>
+<b class="fc"><i>105</i>&nbsp;                        distributedGamblerCards.put(card, newAmountInCents);</b>
+<b class="fc"><i>106</i>&nbsp;                        return true;</b>
+<i>107</i>&nbsp;                    } else {
+<b class="fc"><i>108</i>&nbsp;                        throw new BetNotExceptedException(&quot;Bet is not valid. Bet money amount is greater than the money amount on the card.&quot;);</b>
+<i>109</i>&nbsp;                    }
+<i>110</i>&nbsp;                } else {
+<b class="fc"><i>111</i>&nbsp;                    throw new BetNotExceptedException(&quot;It is not possible to make a bet with a card that is not yet distributed.&quot;);</b>
+<i>112</i>&nbsp;                }
+<i>113</i>&nbsp;            } else {
+<b class="fc"><i>114</i>&nbsp;                throw new IllegalArgumentException(&quot;Bet to check cannot be null.&quot;);</b>
+<i>115</i>&nbsp;            }
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;        } else {
+<b class="fc"><i>118</i>&nbsp;            throw new IllegalArgumentException(&quot;Card cannot be null.&quot;);</b>
+<i>119</i>&nbsp;        }
+<i>120</i>&nbsp;    }
+<i>121</i>&nbsp;
+<i>122</i>&nbsp;    /**
+<i>123</i>&nbsp;     * add amount to the players card.
+<i>124</i>&nbsp;     *
+<i>125</i>&nbsp;     * @should addAmountToIGamblerCardInDistributedGamblerCards
+<i>126</i>&nbsp;     * @should throwsIllegalArgumentExceptionIfIGamblerCardIsNullOrNotDistributed
+<i>127</i>&nbsp;     * @should throwInvalidAmountExceptionWhenMoneyAmountContainsNegativeValueOrIsNull
+<i>128</i>&nbsp;     *
+<i>129</i>&nbsp;     * @param card card to add amount to
+<i>130</i>&nbsp;     * @param amount amount to add to card
+<i>131</i>&nbsp;     * @throws InvalidAmountException when MoneyAmount contains a negative value or is null
+<i>132</i>&nbsp;     * @throws IllegalArgumentException if a card is not yet distributed or a card is null
+<i>133</i>&nbsp;     */
+<i>134</i>&nbsp;    @Override
+<i>135</i>&nbsp;    public void addAmount(IGamblerCard card, MoneyAmount amount) throws InvalidAmountException, IllegalArgumentException {
+<b class="fc"><i>136</i>&nbsp;        if (card != null) {</b>
+<b class="fc"><i>137</i>&nbsp;            if (distributedGamblerCards.containsKey(card)) {</b>
+<b class="fc"><i>138</i>&nbsp;                if (amount != null) {</b>
+<b class="fc"><i>139</i>&nbsp;                    long amountToAdd = amount.getAmountInCents();</b>
+<b class="fc"><i>140</i>&nbsp;                    if (amountToAdd &gt; 0) {</b>
+<b class="fc"><i>141</i>&nbsp;                        Long newAmountInCents = distributedGamblerCards.get(card) + amountToAdd;</b>
+<b class="fc"><i>142</i>&nbsp;                        distributedGamblerCards.put(card, newAmountInCents);</b>
+<b class="fc"><i>143</i>&nbsp;                    } else {</b>
+<b class="fc"><i>144</i>&nbsp;                        throw new InvalidAmountException(&quot;It is not possible to add a negative amount to a card.&quot;);</b>
+<i>145</i>&nbsp;                    }
+<b class="fc"><i>146</i>&nbsp;                } else {</b>
+<b class="fc"><i>147</i>&nbsp;                    throw new InvalidAmountException(&quot;It is not possible to add a null amount to a card.&quot;);</b>
+<i>148</i>&nbsp;                }
+<i>149</i>&nbsp;            } else {
+<b class="fc"><i>150</i>&nbsp;                throw new IllegalArgumentException(&quot;It is not possible to add an amount to a card that is not yet distributed.&quot;);</b>
+<i>151</i>&nbsp;            }
+<i>152</i>&nbsp;        } else {
+<b class="fc"><i>153</i>&nbsp;          throw new IllegalArgumentException(&quot;It is not possible to add an amount to a null card.&quot;);</b>
+<i>154</i>&nbsp;        }
+<b class="fc"><i>155</i>&nbsp;    }</b>
+<i>156</i>&nbsp;
+<i>157</i>&nbsp;    // BELOW ARE GETTERS CREATED WITH INTELLIJ SO THEY DO NOT NEED TO BE TESTED
+<i>158</i>&nbsp;    public IBetLoggingAuthority getBetLoggingAuthority() {
+<b class="fc"><i>159</i>&nbsp;        return betLoggingAuthority;</b>
+<i>160</i>&nbsp;    }
+<i>161</i>&nbsp;
+<i>162</i>&nbsp;    public Map&lt;IGamblerCard, Long&gt; getDistributedGamblerCards() {
+<b class="fc"><i>163</i>&nbsp;        return distributedGamblerCards;</b>
+<i>164</i>&nbsp;    }
+<i>165</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

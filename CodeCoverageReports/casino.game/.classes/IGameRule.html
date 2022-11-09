@@ -1,0 +1,80 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IGameRule</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino.game</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IGameRule (casino.game)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">IGameRule</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino.game;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import casino.bet.Bet;
+<i>4</i>&nbsp;import casino.bet.BetResult;
+<i>5</i>&nbsp;import casino.cashier.InvalidAmountException;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.util.Set;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;/**
+<i>10</i>&nbsp; * interface for gamerules
+<i>11</i>&nbsp; *
+<i>12</i>&nbsp; * gamerules determine the amount of bets are maximum needed from BettingRounds
+<i>13</i>&nbsp; *
+<i>14</i>&nbsp; */
+<i>15</i>&nbsp;public interface IGameRule {
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    /**
+<i>18</i>&nbsp;     * Determine the winner from a Set of Bets, using a given random win value;
+<i>19</i>&nbsp;     * @param randomWinValue
+<i>20</i>&nbsp;     * @param bets
+<i>21</i>&nbsp;     * @return Betresult, containing the result for the winning bet.
+<i>22</i>&nbsp;     * @throws NoBetsMadeException when no bets have been made yet.
+<i>23</i>&nbsp;     */
+<i>24</i>&nbsp;    BetResult determineWinner(Integer randomWinValue, Set&lt;Bet&gt; bets) throws NoBetsMadeException, InvalidAmountException;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    /**
+<i>27</i>&nbsp;     * return the maximum number of bets which are used in the calculation of the winner.
+<i>28</i>&nbsp;     *
+<i>29</i>&nbsp;     * @return
+<i>30</i>&nbsp;     */
+<i>31</i>&nbsp;    int getMaxBetsPerRound();
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

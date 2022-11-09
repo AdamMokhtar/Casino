@@ -1,0 +1,95 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ICashier</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino.cashier</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ICashier (casino.cashier)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ICashier</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino.cashier;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import casino.bet.Bet;
+<i>4</i>&nbsp;import casino.bet.MoneyAmount;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public interface ICashier {
+<i>7</i>&nbsp;    /**
+<i>8</i>&nbsp;     * Cards are distributed by a Cashier to a gambler
+<i>9</i>&nbsp;     * bankteller keeps track of which cards are handed out.
+<i>10</i>&nbsp;     * Note: also use the appropiate required methods from the gambling authority API
+<i>11</i>&nbsp;     *
+<i>12</i>&nbsp;     * @return
+<i>13</i>&nbsp;     */
+<i>14</i>&nbsp;    IGamblerCard distributeGamblerCard();
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    /**
+<i>17</i>&nbsp;     * When handing in the card at a Bank teller, all betID’s on it are logged.
+<i>18</i>&nbsp;     * The total amount of money credit is physically handed to the gambler,
+<i>19</i>&nbsp;     * and card is removed from the list of distributed gambler cards.
+<i>20</i>&nbsp;     * The stored betID’s on the card are also removed.
+<i>21</i>&nbsp;     * Note: also use the appropriate required methods from the gambling authority API
+<i>22</i>&nbsp;      * @param card
+<i>23</i>&nbsp;     */
+<i>24</i>&nbsp;    void returnGamblerCard(IGamblerCard card);
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    /**
+<i>27</i>&nbsp;     * check if Bet made with the playercard is possible. this is based on the amount related
+<i>28</i>&nbsp;     * to the card, and the amount made in the bet.
+<i>29</i>&nbsp;     *
+<i>30</i>&nbsp;     * if the bet is valid, the amount of the bet is subtracted from the amount belonging to
+<i>31</i>&nbsp;     * the card.
+<i>32</i>&nbsp;     *
+<i>33</i>&nbsp;     * @param card
+<i>34</i>&nbsp;     * @param betToCheck
+<i>35</i>&nbsp;     * @return
+<i>36</i>&nbsp;     * @throws BetNotExceptedException if bet amount is invalid
+<i>37</i>&nbsp;     */
+<i>38</i>&nbsp;    boolean checkIfBetIsValid(IGamblerCard card, Bet betToCheck) throws BetNotExceptedException;
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    /**
+<i>41</i>&nbsp;     * add amount to the players card.
+<i>42</i>&nbsp;     *
+<i>43</i>&nbsp;     * @param card card to add amount to
+<i>44</i>&nbsp;     * @param amount amount to add to card
+<i>45</i>&nbsp;     * @throws InvalidAmountException when MoneyAmount contains a negative value or is null
+<i>46</i>&nbsp;     */
+<i>47</i>&nbsp;    void addAmount(IGamblerCard card, MoneyAmount amount) throws InvalidAmountException;
+<i>48</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

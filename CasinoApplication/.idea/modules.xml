@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/groupAssignment20202021fall.iml" filepath="$PROJECT_DIR$/.idea/modules/groupAssignment20202021fall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/groupAssignment20202021fall.main.iml" filepath="$PROJECT_DIR$/.idea/modules/groupAssignment20202021fall.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/groupAssignment20202021fall.test.iml" filepath="$PROJECT_DIR$/.idea/modules/groupAssignment20202021fall.test.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/CasinoApplication.iml" filepath="$PROJECT_DIR$/.idea/CasinoApplication.iml" />
+>>>>>>> master
+    </modules>
+  </component>
+</project>

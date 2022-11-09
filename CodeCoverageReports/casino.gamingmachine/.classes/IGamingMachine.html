@@ -1,0 +1,106 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IGamingMachine</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino.gamingmachine</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IGamingMachine (casino.gamingmachine)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">IGamingMachine</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino.gamingmachine;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import casino.bet.BetResult;
+<i>4</i>&nbsp;import casino.cashier.BetNotExceptedException;
+<i>5</i>&nbsp;import casino.cashier.IGamblerCard;
+<i>6</i>&nbsp;import casino.cashier.InvalidAmountException;
+<i>7</i>&nbsp;import casino.game.NoBetsMadeException;
+<i>8</i>&nbsp;import casino.game.NoCurrentRoundException;
+<i>9</i>&nbsp;import casino.idfactory.GamingMachineID;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;/**
+<i>12</i>&nbsp; * Described a gaming machine. a machine has a gamingmachineID,
+<i>13</i>&nbsp; * is always connected to a game and the cashier.
+<i>14</i>&nbsp; * one card can be connected or disconnected to a machine.
+<i>15</i>&nbsp; */
+<i>16</i>&nbsp;public interface IGamingMachine {
+<i>17</i>&nbsp;    /**
+<i>18</i>&nbsp;     *
+<i>19</i>&nbsp;     * try to place bet with given amount and connected card.
+<i>20</i>&nbsp;     * amount needs to be checked with the cashier
+<i>21</i>&nbsp;     * if accepted: generate a bet using the card and add it to the game.
+<i>22</i>&nbsp;     *
+<i>23</i>&nbsp;     * @param amountInCents amount in cents to gamble
+<i>24</i>&nbsp;     * @return true if bet is valid, excepted and added to betting round.
+<i>25</i>&nbsp;     * @throws NoPlayerCardException when no card is connected to this machine.
+<i>26</i>&nbsp;     */
+<i>27</i>&nbsp;    boolean placeBet(long amountInCents) throws NoPlayerCardException, CurrentBetMadeException, InvalidAmountException, BetNotExceptedException, NoCurrentRoundException, NoBetsMadeException;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    /**
+<i>30</i>&nbsp;     * Accept the BetResult from the winner. Clear all open bets on this machine.
+<i>31</i>&nbsp;     * When the winner has made his bet on this machine: let the Cashier update
+<i>32</i>&nbsp;     * the amount of the winner.
+<i>33</i>&nbsp;     *
+<i>34</i>&nbsp;     * @param winResult result of a betting round. can be null when there is no winner.
+<i>35</i>&nbsp;     */
+<i>36</i>&nbsp;    void acceptWinner(BetResult winResult) throws InvalidAmountException;
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    /**
+<i>39</i>&nbsp;     * getter
+<i>40</i>&nbsp;     * @return gamingmachineID
+<i>41</i>&nbsp;     */
+<i>42</i>&nbsp;    GamingMachineID getGamingMachineID();
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    /**
+<i>45</i>&nbsp;     * connect card to this gaming machine
+<i>46</i>&nbsp;     * @param card card to connect
+<i>47</i>&nbsp;     */
+<i>48</i>&nbsp;    public void connectCard(IGamblerCard card);
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    /**
+<i>52</i>&nbsp;     * disconnects/removes card from this gaming machine.
+<i>53</i>&nbsp;     * @throws CurrentBetMadeException when open bets made with this card
+<i>54</i>&nbsp;     * are still present in the current betting round and
+<i>55</i>&nbsp;     */
+<i>56</i>&nbsp;    void disconnectCard() throws CurrentBetMadeException;
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

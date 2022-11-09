@@ -1,0 +1,147 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Bet</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino.bet</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Bet (casino.bet)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Bet</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90.9%
+  </span>
+  <span class="absValue">
+    (10/ 11)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Bet$MockitoMock$526683078</td>
+  </tr>
+  <tr>
+    <td class="name">Bet$MockitoMock$526683078$auxiliary$KpzApaJ5</td>
+  </tr>
+  <tr>
+    <td class="name">Bet$MockitoMock$526683078$auxiliary$NPsu0qUH</td>
+  </tr>
+  <tr>
+    <td class="name">Bet$MockitoMock$526683078$auxiliary$p4Bj2l7J</td>
+  </tr>
+  <tr>
+    <td class="name">Bet$MockitoMock$526683078$auxiliary$zNxZplo1</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90.9%
+  </span>
+  <span class="absValue">
+    (10/ 11)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino.bet;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import casino.idfactory.BetID;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.util.Objects;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;/**
+<i>8</i>&nbsp; * immutable class.
+<i>9</i>&nbsp; * keeps unique betID and moneyamount in the bet.
+<i>10</i>&nbsp; */
+<i>11</i>&nbsp;public class Bet {
+<i>12</i>&nbsp;    private BetID betID;
+<i>13</i>&nbsp;    private MoneyAmount moneyAmount;
+<i>14</i>&nbsp;
+<b class="fc"><i>15</i>&nbsp;    public Bet(BetID betID, MoneyAmount moneyAmount) {</b>
+<b class="fc"><i>16</i>&nbsp;        this.betID = betID;</b>
+<b class="fc"><i>17</i>&nbsp;        this.moneyAmount = moneyAmount;</b>
+<b class="fc"><i>18</i>&nbsp;    }</b>
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    @Override
+<i>22</i>&nbsp;    public boolean equals(Object o) {
+<b class="fc"><i>23</i>&nbsp;        if (this == o) return true;</b>
+<b class="fc"><i>24</i>&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="fc"><i>25</i>&nbsp;        Bet bet = (Bet) o;</b>
+<b class="fc"><i>26</i>&nbsp;        return betID == bet.betID;</b>
+<i>27</i>&nbsp;    }
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    @Override
+<i>30</i>&nbsp;    public int hashCode() {
+<b class="nc"><i>31</i>&nbsp;        return Objects.hash(betID);</b>
+<i>32</i>&nbsp;    }
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    public MoneyAmount getMoneyAmount() {
+<b class="fc"><i>35</i>&nbsp;        return moneyAmount;</b>
+<i>36</i>&nbsp;    }
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    public BetID getBetID() {
+<b class="fc"><i>39</i>&nbsp;        return betID;</b>
+<i>40</i>&nbsp;    }
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BetID</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino.idfactory</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BetID (casino.idfactory)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BetID</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">BetID$MockitoMock$625850019</td>
+  </tr>
+  <tr>
+    <td class="name">BetID$MockitoMock$625850019$auxiliary$fE1q488i</td>
+  </tr>
+  <tr>
+    <td class="name">BetID$MockitoMock$625850019$auxiliary$FfeZWPjE</td>
+  </tr>
+  <tr>
+    <td class="name">BetID$MockitoMock$625850019$auxiliary$piAywkob</td>
+  </tr>
+  <tr>
+    <td class="name">BetID$MockitoMock$625850019$auxiliary$QwGlDadu</td>
+  </tr>
+  <tr>
+    <td class="name">BetID$MockitoMock$625850019$auxiliary$ykhaLGgo</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino.idfactory;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import casino.bet.Bet;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;/**
+<i>7</i>&nbsp; * @author ciara
+<i>8</i>&nbsp; */
+<b class="fc"><i>9</i>&nbsp;public class BetID extends GeneralID implements Comparable {</b>
+<i>10</i>&nbsp;    /**
+<i>11</i>&nbsp;     * this method compares two objects to see if they are equal
+<i>12</i>&nbsp;     * two objects are equal if they have the same hashcode and
+<i>13</i>&nbsp;     * are both an instance of the BetID class
+<i>14</i>&nbsp;     *
+<i>15</i>&nbsp;     * @should return0IfTwoObjectsAreEqualBasedOnHashCodeAndObjectType
+<i>16</i>&nbsp;     * @should return1IfTwoObjectsAreNotEqualBasedOnHashCodeAndObjectType
+<i>17</i>&nbsp;     *
+<i>18</i>&nbsp;     * @param o is the object to test with this
+<i>19</i>&nbsp;     * @return 0 if the two objects are equal and zero if not
+<i>20</i>&nbsp;     */
+<i>21</i>&nbsp;    @Override
+<i>22</i>&nbsp;    public int compareTo(Object o) {
+<b class="fc"><i>23</i>&nbsp;        if (o.equals(this)) {</b>
+<b class="fc"><i>24</i>&nbsp;            if (o instanceof BetID) {</b>
+<b class="fc"><i>25</i>&nbsp;                return 0;</b>
+<i>26</i>&nbsp;            }
+<i>27</i>&nbsp;        }
+<b class="fc"><i>28</i>&nbsp;        return 1;</b>
+<i>29</i>&nbsp;    }
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    @Override
+<i>32</i>&nbsp;    public int hashCode() {
+<b class="fc"><i>33</i>&nbsp;        return super.hashCode();</b>
+<i>34</i>&nbsp;    }
+<i>35</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

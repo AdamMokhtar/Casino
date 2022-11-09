@@ -1,0 +1,158 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: AbstractGame</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino.game</a> ]
+</div>
+
+<h1>Coverage Summary for Class: AbstractGame (casino.game)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AbstractGame</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/ 14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino.game;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import gamblingauthoritiy.BettingAuthority;
+<i>5</i>&nbsp;import gamblingauthoritiy.IBetLoggingAuthority;
+<i>6</i>&nbsp;import gamblingauthoritiy.IBetTokenAuthority;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;/**
+<i>9</i>&nbsp; * @author ciara
+<i>10</i>&nbsp; */
+<i>11</i>&nbsp;public abstract class AbstractGame implements IGame{
+<i>12</i>&nbsp;    private IBetLoggingAuthority betLoggingAuthority;
+<i>13</i>&nbsp;    private IBetTokenAuthority betTokenAuthority;
+<i>14</i>&nbsp;    private IGameRule gameRule;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp; // define only the constructor here
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    /**
+<i>19</i>&nbsp;     * creates an object of type AbstractGame with an IBetLoggingAuthority and IBetTokenAuthority and IGameRule
+<i>20</i>&nbsp;     *
+<i>21</i>&nbsp;     * @should createAnAbstractGameWithPassedIBetLoggingAuthorityAndIBetTokenAuthorityAndIGameRule
+<i>22</i>&nbsp;     * @should throwIllegalArgumentExceptionWithNullIBetLoggingAuthorityOrIBetTokenAuthorityOrIGameRule
+<i>23</i>&nbsp;     *
+<i>24</i>&nbsp;     * @param betLoggingAuthority is the AbstractGame&#39;s IBetLoggingAuthority
+<i>25</i>&nbsp;     * @param betTokenAuthority is the AbstractGame&#39;s IBetTokenAuthority
+<i>26</i>&nbsp;     * @param gameRule is the AbstractGame&#39;s IGameRule
+<i>27</i>&nbsp;     * @throws IllegalArgumentException if IBetLoggingAuthority or IBetTokenAuthority or IGameRule is null
+<i>28</i>&nbsp;     */
+<i>29</i>&nbsp;    public AbstractGame(IBetLoggingAuthority betLoggingAuthority, IBetTokenAuthority betTokenAuthority,
+<b class="fc"><i>30</i>&nbsp;                        IGameRule gameRule) throws IllegalArgumentException {</b>
+<b class="fc"><i>31</i>&nbsp;        if (betLoggingAuthority != null) {</b>
+<b class="fc"><i>32</i>&nbsp;            if (betTokenAuthority != null) {</b>
+<b class="fc"><i>33</i>&nbsp;                if (gameRule != null) {</b>
+<b class="fc"><i>34</i>&nbsp;                    this.betLoggingAuthority = betLoggingAuthority;</b>
+<b class="fc"><i>35</i>&nbsp;                    this.betTokenAuthority = betTokenAuthority;</b>
+<b class="fc"><i>36</i>&nbsp;                    this.gameRule = gameRule;</b>
+<i>37</i>&nbsp;                } else {
+<b class="fc"><i>38</i>&nbsp;                    throw new IllegalArgumentException(&quot;IGameRule cannot be null.&quot;);</b>
+<i>39</i>&nbsp;                }
+<i>40</i>&nbsp;            } else {
+<b class="fc"><i>41</i>&nbsp;                throw new IllegalArgumentException(&quot;IBetTokenAuthority cannot be null.&quot;);</b>
+<i>42</i>&nbsp;            }
+<i>43</i>&nbsp;        } else {
+<b class="fc"><i>44</i>&nbsp;            throw new IllegalArgumentException(&quot;IBetLoggingAuthority cannot be null.&quot;);</b>
+<i>45</i>&nbsp;        }
+<i>46</i>&nbsp;
+<b class="fc"><i>47</i>&nbsp;    }</b>
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    // BELOW ARE GETTERS CREATED WITH INTELLIJ SO THEY DO NOT NEED TO BE TESTED
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    /**
+<i>53</i>&nbsp;     *
+<i>54</i>&nbsp;     * @return this AbstractGame&#39;s GameRule
+<i>55</i>&nbsp;     */
+<i>56</i>&nbsp;    public IBetLoggingAuthority getBetLoggingAuthority() {
+<b class="fc"><i>57</i>&nbsp;        return betLoggingAuthority;</b>
+<i>58</i>&nbsp;    }
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;    /**
+<i>61</i>&nbsp;     *
+<i>62</i>&nbsp;     * @return this AbstractGame&#39;s BetTokenAuthority
+<i>63</i>&nbsp;     */
+<i>64</i>&nbsp;    public IBetTokenAuthority getBetTokenAuthority() {
+<b class="fc"><i>65</i>&nbsp;        return betTokenAuthority;</b>
+<i>66</i>&nbsp;    }
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;    /**
+<i>69</i>&nbsp;     *
+<i>70</i>&nbsp;     * @return this AbstractGame&#39;s GameRule
+<i>71</i>&nbsp;     */
+<i>72</i>&nbsp;    public IGameRule getGameRule() {
+<b class="fc"><i>73</i>&nbsp;        return gameRule;</b>
+<i>74</i>&nbsp;    }
+<i>75</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

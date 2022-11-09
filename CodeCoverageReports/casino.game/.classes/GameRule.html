@@ -1,0 +1,195 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: GameRule</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino.game</a> ]
+</div>
+
+<h1>Coverage Summary for Class: GameRule (casino.game)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GameRule</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (24/ 24)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">GameRule$MockitoMock$322826408</td>
+  </tr>
+  <tr>
+    <td class="name">GameRule$MockitoMock$322826408$auxiliary$E9OQUY9r</td>
+  </tr>
+  <tr>
+    <td class="name">GameRule$MockitoMock$322826408$auxiliary$jyApT3uM</td>
+  </tr>
+  <tr>
+    <td class="name">GameRule$MockitoMock$322826408$auxiliary$LS3aUZz3</td>
+  </tr>
+  <tr>
+    <td class="name">GameRule$MockitoMock$322826408$auxiliary$WrTlxOvH</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (24/ 24)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino.game;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import casino.bet.Bet;
+<i>4</i>&nbsp;import casino.bet.BetResult;
+<i>5</i>&nbsp;import casino.bet.MoneyAmount;
+<i>6</i>&nbsp;import casino.cashier.InvalidAmountException;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import java.lang.reflect.Array;
+<i>9</i>&nbsp;import java.util.ArrayList;
+<i>10</i>&nbsp;import java.util.List;
+<i>11</i>&nbsp;import java.util.Set;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;/**
+<i>14</i>&nbsp; * @author nagi
+<i>15</i>&nbsp; */
+<b class="fc"><i>16</i>&nbsp;public class GameRule implements IGameRule {</b>
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    /**
+<i>19</i>&nbsp;     * Determine the winner from a Set of Bets, using a given random win value;
+<i>20</i>&nbsp;     * @param randomWinValue  The closet money amount value of a bet to this random number is the winner bet. The number must be a whole number.
+<i>21</i>&nbsp;     * @param bets  This set of bets that the GameRule have to choose one of them to be the winner of the game.
+<i>22</i>&nbsp;     * @return Betresult, containing the result for the winning bet. The won amount of the BetResult can not be null or negative value.
+<i>23</i>&nbsp;     * @throws NoBetsMadeException when no bets have been made yet.
+<i>24</i>&nbsp;     * @throws IllegalArgumentException when the random win value is not a whole number.
+<i>25</i>&nbsp;     * @throws InvalidAmountException when the won money amount of the returned BetResult is 0 or negative value.
+<i>26</i>&nbsp;     *
+<i>27</i>&nbsp;     * @should throwNoBetsMadeExceptionInCaseThereIsNoBetsInTheBetsList
+<i>28</i>&nbsp;     * @should throwIllegalArgumentExceptionIfRandomWinValueIsNotAWholeNumber
+<i>29</i>&nbsp;     * @should notCreateOrReturnABetResultTillTheTotalBetsIsEqualToTheGetMaxBetsPerRound
+<i>30</i>&nbsp;     * @should callAllTheMoneyAmountOfAllBetsInThePassedListOfBets
+<i>31</i>&nbsp;     * @should CreateAndReturnABetResultWithTheWinningBetAndTotalMoneyAmountOfBetsAsTheWinningMoneyAmountWhenTotalBetsIsEqualTheGetMaxBetsPerRound
+<i>32</i>&nbsp;     * @should returnNullInCaseTheTotalBetsAreNotEqualToTheGetMaxBetsPerRound
+<i>33</i>&nbsp;     * @should throwInvalidAmountExceptionInCaseTheWinningMoneyAmountIs0
+<i>34</i>&nbsp;     * @should throwInvalidAmountExceptionInCaseTheWinningMoneyAmountIsNegativeValue
+<i>35</i>&nbsp;     */
+<i>36</i>&nbsp;    @Override
+<i>37</i>&nbsp;    public BetResult determineWinner(Integer randomWinValue, Set&lt;Bet&gt; bets) throws NoBetsMadeException, IllegalArgumentException, InvalidAmountException {
+<i>38</i>&nbsp;
+<b class="fc"><i>39</i>&nbsp;        if(bets.size() &lt; 1){</b>
+<b class="fc"><i>40</i>&nbsp;            throw new NoBetsMadeException(&quot;Can not determine winner without bets!!!&quot;);</b>
+<i>41</i>&nbsp;        }
+<b class="fc"><i>42</i>&nbsp;        if (randomWinValue &lt; 0){</b>
+<i>43</i>&nbsp;
+<b class="fc"><i>44</i>&nbsp;            throw new IllegalArgumentException(&quot;Random win value have to be a whole a number!!&quot;);</b>
+<i>45</i>&nbsp;        }
+<i>46</i>&nbsp;
+<b class="fc"><i>47</i>&nbsp;        if (bets.size() == this.getMaxBetsPerRound()){</b>
+<i>48</i>&nbsp;
+<b class="fc"><i>49</i>&nbsp;            long wonAmount = 0;</b>
+<b class="fc"><i>50</i>&nbsp;            long smallestElement = Math.abs(randomWinValue - bets.stream().findFirst().get().getMoneyAmount().getAmountInCents());</b>
+<b class="fc"><i>51</i>&nbsp;            Bet closestBet = bets.stream().findFirst().get();</b>
+<b class="fc"><i>52</i>&nbsp;            long temp = 0;</b>
+<i>53</i>&nbsp;
+<b class="fc"><i>54</i>&nbsp;            for (Bet i:bets) {</b>
+<b class="fc"><i>55</i>&nbsp;                temp = Math.abs(i.getMoneyAmount().getAmountInCents() - randomWinValue);</b>
+<b class="fc"><i>56</i>&nbsp;                if (smallestElement &gt; temp) {</b>
+<b class="fc"><i>57</i>&nbsp;                    smallestElement = temp;</b>
+<b class="fc"><i>58</i>&nbsp;                    closestBet = i;</b>
+<i>59</i>&nbsp;                }
+<b class="fc"><i>60</i>&nbsp;                wonAmount += i.getMoneyAmount().getAmountInCents();</b>
+<i>61</i>&nbsp;
+<b class="fc"><i>62</i>&nbsp;            }</b>
+<b class="fc"><i>63</i>&nbsp;            MoneyAmount totalMoneyAmounts = new MoneyAmount(wonAmount);</b>
+<b class="fc"><i>64</i>&nbsp;            BetResult betResult = new BetResult(closestBet, totalMoneyAmounts);</b>
+<i>65</i>&nbsp;
+<b class="fc"><i>66</i>&nbsp;            if (betResult.getAmountWon().getAmountInCents() == 0 || betResult.getAmountWon().getAmountInCents() &lt; 0){</b>
+<i>67</i>&nbsp;
+<b class="fc"><i>68</i>&nbsp;                throw new InvalidAmountException(&quot;Winning money amount can not have a 0 value or less!!&quot;);</b>
+<i>69</i>&nbsp;            }
+<i>70</i>&nbsp;
+<b class="fc"><i>71</i>&nbsp;            return betResult;</b>
+<i>72</i>&nbsp;        }
+<i>73</i>&nbsp;
+<b class="fc"><i>74</i>&nbsp;        return null;</b>
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;    }
+<i>77</i>&nbsp;
+<i>78</i>&nbsp;    /**
+<i>79</i>&nbsp;     * return the maximum number of bets which are used in the calculation of the winner. The GameRule can not determine the winner
+<i>80</i>&nbsp;     * if the total bets in determineWinner method are not equal to the maximum number. For now we assume 3 is the maximum number therefore, the method return 3.
+<i>81</i>&nbsp;     *
+<i>82</i>&nbsp;     * @return
+<i>83</i>&nbsp;     *
+<i>84</i>&nbsp;     * @should returnValue3ForMaxBetsPerRound
+<i>85</i>&nbsp;     */
+<i>86</i>&nbsp;    @Override
+<i>87</i>&nbsp;    public int getMaxBetsPerRound() throws IllegalArgumentException {
+<b class="fc"><i>88</i>&nbsp;        return 3;</b>
+<i>89</i>&nbsp;    }
+<i>90</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IGame</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino.game</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IGame (casino.game)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">IGame$MockitoMock$983119922</td>
+  </tr>
+  <tr>
+    <td class="name">IGame$MockitoMock$983119922$auxiliary$mvh4IOQq</td>
+  </tr>
+  <tr>
+    <td class="name">IGame$MockitoMock$983119922$auxiliary$y9YEyhE0</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino.game;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import casino.bet.Bet;
+<i>4</i>&nbsp;import casino.cashier.InvalidAmountException;
+<i>5</i>&nbsp;import casino.gamingmachine.GamingMachine;
+<i>6</i>&nbsp;import casino.gamingmachine.IGamingMachine;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import java.util.Set;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;/**
+<i>11</i>&nbsp; * represents a game in a casino.
+<i>12</i>&nbsp; * every game needs access to the gaming authority API for logging and for betting round
+<i>13</i>&nbsp; * activities and needs to have a gamerule.
+<i>14</i>&nbsp; *
+<i>15</i>&nbsp; *
+<i>16</i>&nbsp; *
+<i>17</i>&nbsp; */
+<i>18</i>&nbsp;public interface IGame {
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    /**
+<i>21</i>&nbsp;     * create and start a new BettingRound.
+<i>22</i>&nbsp;     * when called when a current bettinground is active: the current bettinground ends and a new
+<i>23</i>&nbsp;     * bettinground is created, which becomes the current bettinground.
+<i>24</i>&nbsp;     *
+<i>25</i>&nbsp;     * Note: also use the appropiate required methods from the gambling authority API
+<i>26</i>&nbsp;     *
+<i>27</i>&nbsp;     */
+<i>28</i>&nbsp;    void startBettingRound();
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    /**
+<i>31</i>&nbsp;     * Accept a bet on the current betting round.
+<i>32</i>&nbsp;     * determine if the betting round is finished, if so: determine the winner,
+<i>33</i>&nbsp;     * notify the connected gaming machines and start a new betting round.
+<i>34</i>&nbsp;     *
+<i>35</i>&nbsp;     * Note: also use the appropiate required methods from the gambling authority API
+<i>36</i>&nbsp;     *
+<i>37</i>&nbsp;     * @param bet the bet to be made on the betting round
+<i>38</i>&nbsp;     * @param gamingMachine gamingmachine which places bet on this game.
+<i>39</i>&nbsp;     * @return true when bet is accepted by the game, otherwise false.
+<i>40</i>&nbsp;     * @throws NoCurrentRoundException when no BettingRound is currently active.
+<i>41</i>&nbsp;     */
+<i>42</i>&nbsp;    boolean acceptBet(Bet bet, IGamingMachine gamingMachine) throws NoCurrentRoundException, NoBetsMadeException, InvalidAmountException;
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    /**
+<i>46</i>&nbsp;     * End the current bettinground and calculate the winner using the gamerules.
+<i>47</i>&nbsp;     * notifiy all connected game machines of the BetResult.
+<i>48</i>&nbsp;     * When no bets have been made yet, no winner can be determined. In this case, only log to the betlogging authority,
+<i>49</i>&nbsp;     * and end the current bettinground.
+<i>50</i>&nbsp;     *
+<i>51</i>&nbsp;     * Note: also use the appropiate required methods from the gambling authority API
+<i>52</i>&nbsp;     */
+<i>53</i>&nbsp;    void determineWinner() throws NoBetsMadeException, InvalidAmountException;
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;    /**
+<i>56</i>&nbsp;     * determine if the right number of bets are done (determined by gamerules) to be able to
+<i>57</i>&nbsp;     * calculate a winner.
+<i>58</i>&nbsp;     * for calculation a winner, a true random value needs to be received from the gambling authority API.
+<i>59</i>&nbsp;     * Note: also use the appropiate required methods from the gambling authority API
+<i>60</i>&nbsp;     *
+<i>61</i>&nbsp;     * @return true if all necessary bets are made in the betting round, otherwise false
+<i>62</i>&nbsp;     */
+<i>63</i>&nbsp;    boolean isBettingRoundFinished() throws NoCurrentRoundException;
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;    /**
+<i>66</i>&nbsp;     * to get the betting round created for the game
+<i>67</i>&nbsp;     * @return the current betting round
+<i>68</i>&nbsp;     */
+<i>69</i>&nbsp;    BettingRound getCurrentBettingRound();
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;    /**
+<i>72</i>&nbsp;     * to set the current betting round with another betting round
+<i>73</i>&nbsp;     * this is mainly created for testing to mock the calls to the bettingRound
+<i>74</i>&nbsp;     * @param currentBettingRound
+<i>75</i>&nbsp;     */
+<i>76</i>&nbsp;    void setCurrentBettingRound(BettingRound currentBettingRound);
+<i>77</i>&nbsp;
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;    /**
+<i>80</i>&nbsp;     * all the gaming machines connected to the game will be returned
+<i>81</i>&nbsp;     * @return set of gaming machines added to the game
+<i>82</i>&nbsp;     */
+<i>83</i>&nbsp;    Set&lt;GamingMachine&gt; getConnectedMachines();
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;    /**
+<i>86</i>&nbsp;     * all the betting rounds added to the game will be returned
+<i>87</i>&nbsp;     * @return set of betting rounds added to the game
+<i>88</i>&nbsp;     */
+<i>89</i>&nbsp;    Set&lt;BettingRound&gt; getBettingRounds();
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

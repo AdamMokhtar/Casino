@@ -1,0 +1,240 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BettingRound</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino.game</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BettingRound (casino.game)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BettingRound</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/ 22)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">BettingRound$MockitoMock$695505985</td>
+  </tr>
+  <tr>
+    <td class="name">BettingRound$MockitoMock$695505985$auxiliary$bg0to6cU</td>
+  </tr>
+  <tr>
+    <td class="name">BettingRound$MockitoMock$695505985$auxiliary$MmA5rSN5</td>
+  </tr>
+  <tr>
+    <td class="name">BettingRound$MockitoMock$695505985$auxiliary$N9623TWo</td>
+  </tr>
+  <tr>
+    <td class="name">BettingRound$MockitoMock$695505985$auxiliary$O36rQlFD</td>
+  </tr>
+  <tr>
+    <td class="name">BettingRound$MockitoMock$695505985$auxiliary$OzfpAQgI</td>
+  </tr>
+  <tr>
+    <td class="name">BettingRound$MockitoMock$695505985$auxiliary$qLFSWLgi</td>
+  </tr>
+  <tr>
+    <td class="name">BettingRound$MockitoMock$695505985$auxiliary$ZLge5nc0</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/ 22)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino.game;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import casino.idfactory.BettingRoundID;
+<i>4</i>&nbsp;import gamblingauthoritiy.BetToken;
+<i>5</i>&nbsp;import gamblingauthoritiy.BettingAuthority;
+<i>6</i>&nbsp;import gamblingauthoritiy.IBetLoggingAuthority;
+<i>7</i>&nbsp;import casino.bet.Bet;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;import java.util.HashSet;
+<i>10</i>&nbsp;import java.util.Objects;
+<i>11</i>&nbsp;import java.util.Set;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;/**
+<i>14</i>&nbsp; * @author ciara
+<i>15</i>&nbsp; */
+<i>16</i>&nbsp;public class BettingRound implements IBettingRound {
+<i>17</i>&nbsp;    private BettingRoundID bettingRoundID;
+<i>18</i>&nbsp;    private BetToken betToken;
+<i>19</i>&nbsp;    private Set&lt;Bet&gt; allBetsMade;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    /**
+<i>22</i>&nbsp;     * Creates a BettingRound with a BetToken and BettingRoundID
+<i>23</i>&nbsp;     *
+<i>24</i>&nbsp;     * @should createABettingRoundWithBettingRoundIDAndBetTokenAndInitialiseBetsMade
+<i>25</i>&nbsp;     * @should throwIllegalArgumentExceptionWithNullBettingRoundIDOrBetToken
+<i>26</i>&nbsp;     *
+<i>27</i>&nbsp;     * @param betToken is the BettingRound&#39;s BetToken
+<i>28</i>&nbsp;     * @param bettingRoundID is the BettingRound&#39;s BettingRoundID
+<i>29</i>&nbsp;     */
+<b class="fc"><i>30</i>&nbsp;    public BettingRound(BettingRoundID bettingRoundID, BetToken betToken) throws IllegalArgumentException {</b>
+<b class="fc"><i>31</i>&nbsp;        if (bettingRoundID != null) {</b>
+<b class="fc"><i>32</i>&nbsp;            if (betToken != null) {</b>
+<b class="fc"><i>33</i>&nbsp;                this.bettingRoundID = bettingRoundID;</b>
+<b class="fc"><i>34</i>&nbsp;                this.betToken = betToken;</b>
+<b class="fc"><i>35</i>&nbsp;                this.allBetsMade = new HashSet&lt;&gt;();</b>
+<i>36</i>&nbsp;            } else {
+<b class="fc"><i>37</i>&nbsp;                throw new IllegalArgumentException(&quot;BetToken cannot be null.&quot;);</b>
+<i>38</i>&nbsp;            }
+<i>39</i>&nbsp;        } else {
+<b class="fc"><i>40</i>&nbsp;            throw new IllegalArgumentException(&quot;BettingRoundID cannot be null.&quot;);</b>
+<i>41</i>&nbsp;        }
+<b class="fc"><i>42</i>&nbsp;    }</b>
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    /**
+<i>45</i>&nbsp;     * add a bet to the current bettinground.
+<i>46</i>&nbsp;     *  Note: also use the appropiate required methods from the gambling authority API
+<i>47</i>&nbsp;     *  Update based on class teams call: there is not any required methods from the gambling authority API for BettingRound to call
+<i>48</i>&nbsp;     *
+<i>49</i>&nbsp;     * @should throwIllegalArgumentExceptionWhenBetIsNull
+<i>50</i>&nbsp;     * @should addBetToListOfBets
+<i>51</i>&nbsp;     * @should notAddBetToListOfBetsIfItIsAlreadyInTheList
+<i>52</i>&nbsp;     *
+<i>53</i>&nbsp;     * @param bet is the bet to place
+<i>54</i>&nbsp;     * @return true if bet is made, will never return false as the bet is checked if it is valid before this class
+<i>55</i>&nbsp;     * @throws IllegalArgumentException when Bet is null
+<i>56</i>&nbsp;     */
+<i>57</i>&nbsp;    @Override
+<i>58</i>&nbsp;    public boolean placeBet(Bet bet) throws IllegalArgumentException {
+<b class="fc"><i>59</i>&nbsp;        if (bet != null) {</b>
+<b class="fc"><i>60</i>&nbsp;            this.allBetsMade.add(bet);</b>
+<i>61</i>&nbsp;        } else {
+<b class="fc"><i>62</i>&nbsp;            throw new IllegalArgumentException(&quot;Bet to place cannot be null.&quot;);</b>
+<i>63</i>&nbsp;        }
+<b class="fc"><i>64</i>&nbsp;        return true;</b>
+<i>65</i>&nbsp;    }
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    /**
+<i>68</i>&nbsp;     * @should returnTheSizeOfTheBetsList
+<i>69</i>&nbsp;     *
+<i>70</i>&nbsp;     * @return number of bets made in the betting round
+<i>71</i>&nbsp;     */
+<i>72</i>&nbsp;    @Override
+<i>73</i>&nbsp;    public int numberOFBetsMade() {
+<b class="fc"><i>74</i>&nbsp;        return this.allBetsMade.size();</b>
+<i>75</i>&nbsp;    }
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;    /**
+<i>78</i>&nbsp;     * Make BettingRounds with same BettingRoundID logically equal
+<i>79</i>&nbsp;     * @should makeBettingRoundsWithSameBettingRoundIDLogicallyEqual
+<i>80</i>&nbsp;     *
+<i>81</i>&nbsp;     * @param o is  the object to compare
+<i>82</i>&nbsp;     * @return true if they are equal, false otherwise
+<i>83</i>&nbsp;     */
+<i>84</i>&nbsp;    @Override
+<i>85</i>&nbsp;    public boolean equals(Object o) {
+<b class="fc"><i>86</i>&nbsp;        if (this == o) return true;</b>
+<b class="fc"><i>87</i>&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="fc"><i>88</i>&nbsp;        BettingRound that = (BettingRound) o;</b>
+<b class="fc"><i>89</i>&nbsp;        return Objects.equals(bettingRoundID, that.bettingRoundID);</b>
+<i>90</i>&nbsp;    }
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;    @Override
+<i>93</i>&nbsp;    public int hashCode() {
+<b class="fc"><i>94</i>&nbsp;        return Objects.hash(bettingRoundID);</b>
+<i>95</i>&nbsp;    }
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;    // BELOW ARE GETTERS CREATED WITH INTELLIJ SO THEY DO NOT NEED TO BE TESTED
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;    /**
+<i>101</i>&nbsp;     *
+<i>102</i>&nbsp;     * @return this BettingRound&#39;s bettingID
+<i>103</i>&nbsp;     */
+<i>104</i>&nbsp;    @Override
+<i>105</i>&nbsp;    public BettingRoundID getBettingRoundID() {
+<b class="fc"><i>106</i>&nbsp;        return bettingRoundID;</b>
+<i>107</i>&nbsp;    }
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;    /**
+<i>110</i>&nbsp;     *
+<i>111</i>&nbsp;     * @return betToken from this betting round.
+<i>112</i>&nbsp;     */
+<i>113</i>&nbsp;    @Override
+<i>114</i>&nbsp;    public BetToken getBetToken() {
+<b class="fc"><i>115</i>&nbsp;        return betToken;</b>
+<i>116</i>&nbsp;    }
+<i>117</i>&nbsp;
+<i>118</i>&nbsp;    /**
+<i>119</i>&nbsp;     *
+<i>120</i>&nbsp;     * @return set of all bets made in this betting round.
+<i>121</i>&nbsp;     */
+<i>122</i>&nbsp;    @Override
+<i>123</i>&nbsp;    public Set&lt;Bet&gt; getAllBetsMade() {
+<b class="fc"><i>124</i>&nbsp;        return allBetsMade;</b>
+<i>125</i>&nbsp;    }
+<i>126</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>

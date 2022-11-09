@@ -1,0 +1,135 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Casino</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">casino</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Casino (casino)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Casino</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 6)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package casino;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import gamblingauthoritiy.BettingAuthority;
+<i>4</i>&nbsp;import casino.cashier.*;
+<i>5</i>&nbsp;import casino.bet.Bet;
+<i>6</i>&nbsp;import casino.game.IGame;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import java.util.HashMap;
+<i>9</i>&nbsp;import java.util.Map;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;/**
+<i>12</i>&nbsp; * class representing a casino.
+<i>13</i>&nbsp; *
+<i>14</i>&nbsp; * A casino consists of:
+<i>15</i>&nbsp; * 1 Cashier
+<i>16</i>&nbsp; * 1 Betting Authority API object
+<i>17</i>&nbsp; * a Set of IGames in the casino
+<i>18</i>&nbsp; *
+<i>19</i>&nbsp; * no other methods are allowed to be added.
+<i>20</i>&nbsp; *
+<i>21</i>&nbsp; *
+<i>22</i>&nbsp; * &lt;p&gt;
+<i>23</i>&nbsp; * DOES NOT HAVE TO BE TESTED !!!
+<i>24</i>&nbsp; */
+<i>25</i>&nbsp;public final class Casino  {
+<i>26</i>&nbsp;    private final BettingAuthority bettingAuthority;    // object which is forced to be used by the gambling authority.
+<i>27</i>&nbsp;    private final ICashier teller;                      // cashier of the casino
+<i>28</i>&nbsp;    private Map&lt;String, IGame&gt; games;                   // map of games in this casino.
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;
+<b class="nc"><i>31</i>&nbsp;    public Casino() {</b>
+<b class="nc"><i>32</i>&nbsp;        this.bettingAuthority = new BettingAuthority();</b>
+<b class="nc"><i>33</i>&nbsp;        this.teller = new Cashier(this.bettingAuthority.getLoggingAuthority());</b>
+<b class="nc"><i>34</i>&nbsp;        this.games = new HashMap&lt;&gt;();</b>
+<i>35</i>&nbsp;    }
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    /**
+<i>38</i>&nbsp;     * method to add a named game to the casino
+<i>39</i>&nbsp;     * &lt;p&gt;
+<i>40</i>&nbsp;     *
+<i>41</i>&nbsp;     * @param gameName
+<i>42</i>&nbsp;     * @param gameToAdd
+<i>43</i>&nbsp;     */
+<i>44</i>&nbsp;    public void addGame(String gameName, IGame gameToAdd) {
+<b class="nc"><i>45</i>&nbsp;        if (gameName != null &amp;&amp; gameToAdd != null) {</b>
+<b class="nc"><i>46</i>&nbsp;            this.games.put(gameName, gameToAdd);</b>
+<i>47</i>&nbsp;        }
+<i>48</i>&nbsp;    }
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-08 16:03</div>
+</div>
+</body>
+</html>
